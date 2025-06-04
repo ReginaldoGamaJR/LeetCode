@@ -54,3 +54,50 @@ public:
     }
 };
 //////////////////////////////////////////////////////////////////////////////////
+// 9.Palindrome Number //////////////////////////////////////////////////////////
+class Solution {
+public:
+    bool isPalindrome(int x) {
+        if (x < 0) {
+            return false;
+        }
+        string numero = to_string(x);
+        int left = 0, right = numero.size() - 1;
+        while(right > left){
+            if(numero[left] != numero[right]){
+                return false;
+            }else{
+                left ++;
+                right --;
+            }
+            
+        }
+        return true;
+    }
+};
+/////////////////////////////////////////////////////////////////////////////////
+// 13.Roman To Integer //////////////////////////////////////////////////////////
+class Solution {
+public:
+    int romanToInt(string s) {
+            map<char, int> map = {
+            {'I', 1},
+            {'V', 5},
+            {'X', 10},
+            {'L', 50},
+            {'C', 100},
+            {'D', 500},
+            {'M', 1000}
+        };
+        int valor = 0;
+        for(int i = 0;i<s.size();i++){
+            if(i + 1 < s.size() && map[s[i]] < map[s[i+1]]){
+                valor -= map[s[i]];
+            } else{
+                valor += map[s[i]];
+            }
+        }
+        return valor;
+    }
+};
+/////////////////////////////////////////////////////////////////////////////////

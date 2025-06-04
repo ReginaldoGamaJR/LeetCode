@@ -37,3 +37,44 @@ var addTwoNumbers = function(l1, l2) {
     
 };
 /////////////////////////////////////////////////////////////////////
+/// 9.Palindrome Numbers ////////////////////////////////////////////
+var isPalindrome = function(x) {
+    if(x < 0){
+        return false
+    }
+    let numero = String(x);
+    let left = 0;
+    let right = numero.length - 1;
+    while(left < right){
+        if(numero[left] != numero[right]){
+            return false 
+        }else{
+            left += 1;
+            right -= 1;
+        }
+    }
+    return true
+};
+/////////////////////////////////////////////////////////////////////
+/// 13.Roman To Integer /////////////////////////////////////////////
+var romanToInt = function(s) {
+    let romano = {
+    'I': 1,
+    'V': 5,
+    'X': 10,
+    'L': 50,
+    'C': 100,
+    'D': 500,
+    'M': 1000
+    }
+    let valor = 0
+    for(let i = 0; i < s.length;i++){
+        if(i + 1 < s.length && romano[s[i]] < romano[s[i+1]]){
+            valor -= romano[s[i]]
+        }else{
+            valor += romano[s[i]]
+        }
+    }
+    return valor
+};
+/////////////////////////////////////////////////////////////////////

@@ -30,3 +30,37 @@ class Solution:
             current.next = ListNode(carry)
         return head.next
 #########################################################################
+### 9.Palindrome Numbers ################################################
+class Solution:
+    def isPalindrome(self, x: int) -> bool:
+        numero = str(x)
+        left = 0
+        right = len(numero) - 1
+        while(left < right):
+            if numero[left] is not numero[right] :
+                return False
+            else:
+                left += 1
+                right -= 1
+        return True
+#########################################################################
+## 13.Roman To Integer ##################################################
+class Solution:
+    def romanToInt(self, s: str) -> int:
+        letras = {
+            'I': 1,
+            'V': 5,
+            'X': 10,
+            'L': 50,
+            'C': 100,
+            'D': 500,
+            'M': 1000
+        }
+        valor = 0
+        for i in range(len(s)):
+            if i + 1 < len(s) and letras[s[i]] < letras[s[i+1]]:
+                valor -= letras[s[i]]
+            else:
+                valor += letras[s[i]]
+        return valor
+##########################################################################
