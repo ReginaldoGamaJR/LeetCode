@@ -101,3 +101,32 @@ public:
     }
 };
 /////////////////////////////////////////////////////////////////////////////////
+/// 14. Longest Common Prefix ///////////////////////////////////////////////////
+class Solution {
+public:
+    string longestCommonPrefix(vector<string>& strs) {
+        if (strs.size() == 1){
+            return strs[0];
+        }
+    string resultado = "";
+        string atual = strs[0];
+        for (int j = 1;j < strs.size();j++){
+            string nova = "";
+            for (int k = 0;k < strs[j].size();k++){
+                if(atual[k] == strs[j][k]){
+                    nova.push_back(atual[k]);
+                } else{
+                    break;                
+                }
+            }
+            if(j == 1) {
+                resultado = nova;
+            }
+            if (nova < resultado){
+                resultado = nova;
+            }
+        }
+     return resultado;
+    }
+};
+/////////////////////////////////////////////////////////////////////////////

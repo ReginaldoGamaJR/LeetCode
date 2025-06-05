@@ -64,3 +64,14 @@ class Solution:
                 valor += letras[s[i]]
         return valor
 ##########################################################################
+## 14. Longest Commom Prefix #############################################
+class Solution:
+    def longestCommonPrefix(self, strs: List[str]) -> str:
+        resultado = list(strs[0]);
+        for i in range(1,len(strs)):
+            j = 0
+            while j < len(resultado) and j < len(strs[i]) and resultado[j] == strs[i][j]:         
+                j += 1
+            resultado = resultado[:j]
+        return "".join(resultado)   
+###########################################################################

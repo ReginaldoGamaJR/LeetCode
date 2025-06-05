@@ -78,3 +78,19 @@ var romanToInt = function(s) {
     return valor
 };
 /////////////////////////////////////////////////////////////////////
+// 14.Longest Commom Prefix ////////////////////////////////////////
+var longestCommonPrefix = function(strs) {
+    let resultado = strs[0];
+    for(let i = 0;i < strs.length;i++){
+        let j = 0;
+        while(j < resultado.length && j < strs[i].length && resultado[j] == strs[i][j]){  
+            j++;
+        }
+        resultado = resultado.slice(0,j);
+        if (resultado.length == 0){
+            return resultado;
+        }
+    }
+    return resultado;
+};
+//////////////////////////////////////////////////////////////////
