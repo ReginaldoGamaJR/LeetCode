@@ -94,3 +94,27 @@ var longestCommonPrefix = function(strs) {
     return resultado;
 };
 //////////////////////////////////////////////////////////////////
+// 20 . Valid Parentheses ////////////////////////////////////////
+var isValid = function(s) {
+    let pilha = [];
+    for (let char of s){
+        if(char == '(' || char == '{' || char == '['){
+            pilha.push(char);
+        }
+        else{
+            if(pilha.length == 0){
+                return false;
+            }
+            else{
+                let topo = pilha[pilha.length - 1];
+                if(char == ')' && topo != '(' || char == '}' && topo != '{' || 
+                char ==  ']' && topo != '['){
+                    return false;
+                }
+            }            
+            pilha.pop();
+            } 
+        }   
+    return (pilha.length == 0);
+};
+///////////////////////////////////////////////////////////////////////////////

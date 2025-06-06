@@ -75,3 +75,21 @@ class Solution:
             resultado = resultado[:j]
         return "".join(resultado)   
 ###########################################################################
+## 20. Valid Parentheses ##################################################
+class Solution:
+    def isValid(self, s: str) -> bool:
+        pilha = [];
+        for char in s:
+            if char == '(' or char == '{' or char == '[':
+                pilha.append(char);
+            else:
+                if not pilha:
+                    return False
+                top = pilha[-1];
+                if((char == ')' and top != '(') or (char == '}' and top != '{') or (char == ']' and top != '[')):
+                    return False;
+                pilha.pop();
+        if (len(pilha) > 0):
+            return False;
+        return True 
+##############################################################################
